@@ -1,6 +1,28 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Calculadora {
 
-	public static int sumar(int n1, int n2) {
-		throw new UnsupportedOperationException();
+	private final List<Integer> numeros;
+
+	public Calculadora() {
+		numeros = new ArrayList<>();
+	}
+
+	public int sumar() {
+		int suma = 0;
+		for (Integer numero : numeros) {
+			suma += numero;
+		}
+		limpiarCalculadora();
+		return suma;
+	}
+
+	public void agregarNumero(int numero) {
+		numeros.add(numero);
+	}
+
+	private void limpiarCalculadora() {
+		numeros.clear();
 	}
 }
