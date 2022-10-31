@@ -14,6 +14,7 @@ public class Controlador {
 
     public void empezarJuego() {
         juego.lanzarDados();
+        juego.mostrarDados();
         juego.mostrarGanador();
     }
 }

@@ -33,4 +33,11 @@ public class Juego {
 	public void mostrarGanador() {
 		System.out.println(esGanador() ? "ganaste!!!" : "has perdido!!!");
 	}
+
+	public void mostrarDados() {
+		System.out.println("Tus caras son");
+		for (Dado dado : dados) {
+			System.out.println(dado.obtenerValorCaraSuperior());
+		}
+	}
 }
