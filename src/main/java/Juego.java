@@ -1,25 +1,36 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Juego {
 	private ArrayList<Dado> dados = new ArrayList<Dado>();
 
-	public void iniciar() {
-		throw new UnsupportedOperationException();
+	public Juego() {
+		this.dados = new ArrayList<>();
+		dados.add(new Dado());
+		dados.add(new Dado());
 	}
 
-	private void lanzarDados() {
-		throw new UnsupportedOperationException();
+	public void lanzarDados() {
+		dados.forEach(Dado::lanzar);
 	}
 
-	private void sumarCaras() {
-		throw new UnsupportedOperationException();
+	private int sumarCaras() {
+		Calculadora calculadora = new Calculadora();
+		dados.stream()
+				.mapToInt(Dado::obtenerValorCaraSuperior)
+				.forEach(calculadora::agregarNumero);
+		return calculadora.sumar();
 	}
 
-	private boolean esGanador() {
-		throw new UnsupportedOperationException();
+	public List<Dado> obtenerDados() {
+		return dados;
 	}
 
-	private void mostrarGanador() {
-		throw new UnsupportedOperationException();
+	public boolean esGanador() {
+		return sumarCaras() == 7;
+	}
+
+	public void mostrarGanador() {
+		System.out.println(esGanador() ? "ganaste!!!" : "has perdido!!!");
 	}
 }
