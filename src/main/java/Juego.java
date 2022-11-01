@@ -36,8 +36,8 @@ public class Juego {
 
 	public void mostrarDados() {
 		System.out.println("Tus caras son");
-		for (Dado dado : dados) {
-			System.out.println(dado.obtenerValorCaraSuperior());
-		}
+		dados.stream()
+				.mapToInt(Dado::obtenerValorCaraSuperior)
+				.forEach(System.out::println);
 	}
 }
