@@ -23,7 +23,7 @@ public class Juego {
 	}
 
 	public List<Dado> obtenerDados() {
-		return dados;
+		return new ArrayList<>(dados);
 	}
 
 	public boolean esGanador() {
